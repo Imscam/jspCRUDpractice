@@ -1,0 +1,184 @@
+※ 이클립스 작업 환경 
+JSP개발용 작업 폴더를 이용하여 이클립스 실행
+인코딩 설정 변경 > UTF-8
+Windows - Preferences 
+	General - Workspace 
+		Text file encoding >> UTF-8
+	Web - CSS Files/HTML files/JSP files
+		>> UTF-8
+※ 이클립스 - WAS (등록) 연동
+Windows - Preferences - Server - Runtime Environme environments
+add > Apache Tomcat v9.0 (우리가 하고있는 버젼은 9버젼이다) > JDK든 JRE든 환경에 따라 설정
+
+※ Dyanmic Web Project 생성 
+이름 입력 > Apache Tomcat v9.0 확인 > Next 2번 > Context root 의 이름 확인 > Finish
+Generate web.xml deployment descriptor >>> 배포 서비스
+localhost:8080/examjsp01/ 가 최상위 폴더이다
+└ web.xml (배포/서비스) examjsp01 - Java EE Tools - Generate Deployment Descriptor Stub
+web.xml : 읽어드릴수 있는 형태 web-app xmlns:xsi
+
+※ Jsp 실행 방법
+examjsp01 - Run As - Run on Server
+jsp는 하나만 실행되는것이 아니라 서버가 실행된다고 생각해야됨 
+※경고문※Always use this server when running this project※지금은 체크 하면 안됀다.※
+<% %> - 표현식
+
+※ HTTP 에러들 
+404 파일을 찾을수 없다.
+
+<!-- HTML주석 : 설명 --!>
+<%-- JSP주석: 설명 --%>
+// 자바주석 /*자바범위주석*/
+EX05 
+>>> autoFlush="???" 에 true/false 이냐의 따라 진행이 달라진다.
+EX06	>>>파라미터 값을 넣고 싶으면 - 페이지 이름 뒤에 ?name=값
+>>> 값을 전달하지 않으면 NullPointerException 예외가 발생된다.
+실행하면 에러코드500에 대한 브라우저 errorPage 속성으로 지정된 jsp파일이 있는데 해당 속성이 있으면 EX06.jsp페이지에서 예외가 발생된 경우 error.jsp 로 응답을 처리하겠다는 설정이 된다.
+따라서 지정된 경로에 다음 isErrorPage속성이 지정된 페이지가 필요하다
+!@ = #$  & 
+이름 = 값 그리고
+GET메서드 방식
+
+
+buffer="1kb" 바이트를 지정해두어야된다.
+autoFlush="true" 비워야되는 확인
+impory="java.util.*"
+
+%= 변수 값 
+%! 선언 - 변수 , 메서드
+% 자바코드쓰기
+%> = 계속 에러가 걸려있다면
+Ctrl+A>X>S>V>S
+이런 작업을 하면된다.
+
+
+※ 스타일 관련 - style
+padding 네모박스(또는 사진)안에있는 글자 위치 조정
+text-shadow 글자 그림자효과 및 색
+
+요청 URL길이에 제한이 있음(주소의 최대길이가 있다.
+POST방식 - URL의 제한이 없다.
+
+
+<form method=? action=? >
+	<input 
+	<input type="submit" name="?"
+</form>
+
+String name = request.getParameter("name");
+
+톰캣이 서버
+브라우저가 클라이언트
+
+자동으로 생성되는 객체 - 빈(Bean[콩])
+기본객체
+내장객체
+
+※ request >> 헤더&바디 / 파라미터 정보들 + 속성
+>>> getParameter(?)  / set : X
+>>> getAttribete  / set : O
+request.getRequestDispatcher(같은 서버만 가능).forward(request, response);
+죽어도 이해안돼면 그냥 지금은 쓰지말것
+
+액션태그
+<jsp:setProperty><jsp:getProperty>
+set!@#() get!@#()
+
+<%=request.getContextPath() %>
+최상위 이름을 바꿔도 최상위 이름으로 뱉어내주는 것
+
+
+WAS(톰캣)
+↑↓
+JSP JAVA
+애플리케이션(프로젝트)
+(HTML,CSS,JS)  ← → DB  (또는 MYSQL)
+
+
+
+
+테이블 하나생성 (기존것이 있으면 다시시작{삭제})
+프리미리 번호 
+이름
+나이
+시퀀스
+
+
+
+
+
+
+// DB연동 커넥션 생성
+스태틱 인스턴스
+static instance
+//동기화가 필요할수 있다.
+싱글톤으로 만들었기떄문에 new가 아닌 getInstance로 부러와야된다.
+
+
+DAO - ////(뭐뭐무뭐
+쿼리문에서 컬럼(*)은 ""명확하게 말을해야된다.
+가입 insert into "MEMBER" values (///)
+수정 update "MEMBER" set ?=? ///
+조회 
+ select "SEQ","NAME","AGE" from "MEMBER";
+ select "NAME" from "MEMBER";
+ select "SEQ","NAME" from "MEMBER" where ////;
+탈퇴  delete from "MEMBER" where ? = ? ;
+
+
+JSP
+required 빈칸으로 입력 못 하도록
+name 파라미터 이름
+value 파라미터 결과값
+JSP - JAVA
+Integer.parseInt(request.getParameter("age"));
+request.getRequestDispatcher("완료후 이동시킬곳"); .forwaro(
+response.sendRedirect("");
+
+
+
+
+
+
+
+오구사항 - 설문조사 사이트
+설계(UI,DB,기능)
+ 화면 ~
+ 데이터? - 테이블
+ DAO/VO ~ 다른클래스들 ~~
+---------
+구현 ~
+테스트 ~
+
+좋아하는 음식 종류 설문조사 
+메인
+ 학원건물 반경 200m 안에 음식점 투표하기
+ 학원건물 반경 200m 안에 음식점 현황보기
+ 
+서브
+ 최다 투표 음식점 관련 
+
+
+web.xml - open with - other - jspeditor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
